@@ -1,0 +1,5 @@
+# Không commit bí mật / file nặng
+*.pcap
+*.vmdk
+secrets*
+.env

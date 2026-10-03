@@ -1,0 +1,5 @@
+<!-- Custom rules Wazuh — dải ID 100000+ -->
+<group name="banking,custom,">
+  <!-- TODO ATO: nhiều lần sai + thành công cùng IP → level 12 -->
+  <!-- TODO IDOR: một phiên truy cập nhiều ID khác nhau trong thời gian ngắn -->
+</group>
