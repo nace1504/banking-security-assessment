@@ -37,4 +37,13 @@ Thứ tự rule quan trọng (match từ trên xuống): cho phép gửi log Waz
 
 ## Lưu ý triển khai
 - VMnet2 cần bật "Connect a host virtual adapter" trong Virtual Network Editor để máy host truy cập được GUI pfSense (10.10.10.1) khi cấu hình; có thể tắt sau khi xong.
-- Ảnh bằng chứng: `screenshots/pfsense-interfaces-assigned.png`, `pfsense-wan-configured.png`, `pfsense-dmz-renamed.png`, `pfsense-dmz-firewall-rules.png`, `pfsense-nat-port-forward.png`
+
+## Ảnh bằng chứng (screenshots/)
+- `pfsense-vmnet2-config.jpg`, `pfsense-vmnet3-config.jpg` — Virtual Network Editor (VMnet2 10.10.10.0/24, VMnet3 10.10.20.0/24)
+- `pfsense-vm-network-adapters.jpg` — Hardware settings VM: 3 Network Adapter (NAT/VMnet2/VMnet3)
+- `pfsense-vm-create-summary.jpg` — New VM Wizard: FreeBSD, 2048MB RAM, 10GB disk
+- `pfsense-interfaces-assigned.png` — console gán WAN/LAN/OPT1
+- `pfsense-wan-configured.png` — WAN Reserved Networks đã bỏ chặn
+- `pfsense-dmz-renamed.png` — OPT1 đổi tên thành DMZ, static IP 10.10.20.1/24
+- `pfsense-dmz-firewall-rules.png` — 3 firewall rule DMZ đã apply
+- `pfsense-nat-port-forward.png` — 2 NAT port forward (22, 80) đã apply
