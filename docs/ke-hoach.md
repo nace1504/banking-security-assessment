@@ -17,13 +17,13 @@ Cập nhật: tick `[x]` khi xong, ghi chú vào `nhat-ky.md`.
 - [ ] Hoàn thiện CV kỹ thuật, xuất PDF
 - [ ] Gửi Sun Group
 - [ ] Nộp CyStack (form web)
-- [ ] Tải VMware, pfSense, Windows Server 2022 Eval, Ubuntu 24.04, Kali; kiểm tra BIOS ảo hoá
-- [ ] `git init` repo, commit khung đầu tiên
-- [ ] Ôn mạng nền: TCP/IP, subnet, NAT, DMZ, firewall rule
+- [x] Tải VMware, pfSense, Windows Server 2022 Eval, Ubuntu 24.04, Kali; kiểm tra BIOS ảo hoá
+- [x] `git init` repo, commit khung đầu tiên
+- [x] Ôn mạng nền: TCP/IP, subnet, NAT, DMZ, firewall rule
 
 ## Giai đoạn 1 — 4–5/10: lab + Kịch bản 1
 **Chủ nhật 4/10 (dựng lab)**
-- [ ] Mạng ảo VMnet2/VMnet3 + pfSense → snapshot → ghi `infra/pfsense.md`
+- [x] Mạng ảo VMnet2/VMnet3 + pfSense → snapshot → ghi `infra/pfsense.md`
 - [ ] DC01: AD, OU, user, GPO mật khẩu + khoá tài khoản, audit → snapshot → `infra/ad-gpo.md`
 - [ ] WEB01 + DVWA (Docker) → snapshot → `infra/dvwa.md`
 - [ ] Wazuh + agent DC01, WEB01 (Active) → snapshot → `infra/wazuh.md`
