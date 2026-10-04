@@ -24,7 +24,7 @@ Cập nhật: tick `[x]` khi xong, ghi chú vào `nhat-ky.md`.
 ## Giai đoạn 1 — 4–5/10: lab + Kịch bản 1
 **Chủ nhật 4/10 (dựng lab)**
 - [x] Mạng ảo VMnet2/VMnet3 + pfSense → snapshot → ghi `infra/pfsense.md`
-- [ ] DC01: AD, OU, user, GPO mật khẩu + khoá tài khoản, audit → snapshot → `infra/ad-gpo.md`
+- [x] DC01: AD, OU, user, GPO mật khẩu + khoá tài khoản, audit → snapshot → `infra/ad-gpo.md`
 - [ ] WEB01 + DVWA (Docker) → snapshot → `infra/dvwa.md`
 - [ ] Wazuh + agent DC01, WEB01 (Active) → snapshot → `infra/wazuh.md`
 - [ ] Chụp ảnh vào `screenshots/` suốt quá trình
