@@ -19,3 +19,12 @@
 - GPO Default Domain Policy: password >=12 ký tự + complexity, lockout 5 lần/15 phút, audit logon + account management (Success+Failure).
 - Snapshot dc01-configured. Đã ghi chi tiết vào infra/ad-gpo.md.
 - Tiếp theo: WEB01 (DVWA qua Docker) hoặc Wazuh.
+
+## 05/10/2026 (tiếp — WEB01/DVWA)
+- Dựng xong WEB01 (Ubuntu Server 24.04.4 LTS, 2 vCPU/2GB RAM, DMZ 10.10.20.10).
+- Cài Docker CE, deploy container DVWA (`vulnerables/web-dvwa`), map port 80:80.
+- Fix lỗi DNS Docker daemon (`/etc/docker/daemon.json` → 8.8.8.8/1.1.1.1).
+- Set Security Level = low; đăng nhập admin/password thành công qua NAT WAN pfSense.
+- Sự cố gặp giữa chừng: FW01 (pfSense) bị tắt máy → WEB01 mất kết nối gateway/DNS hoàn toàn; bật lại pfSense là hết.
+- Snapshot `web01-configured`. Đã ghi chi tiết vào `infra/dvwa.md`.
+- Tiếp theo: Wazuh + agent DC01, WEB01 → `infra/wazuh.md`.
