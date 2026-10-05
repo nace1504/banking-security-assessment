@@ -78,6 +78,7 @@ NET START Wazuh
   - **Nguyên nhân thật: VMware NAT Service trên máy host (Windows) bị "kẹt"** sau nhiều lần tắt/bật VM liên tục trong lúc debug — ICMP vẫn qua nhưng NAT connection-tracking cho TCP/UDP bị hỏng. Fix: restart **VMware NAT Service** qua `services.msc` trên máy host → `Test-NetConnection` TCP thành công ngay.
   - Cũng thêm forwarder DNS cho AD (`Add-DnsServerForwarder -IPAddress 8.8.8.8,1.1.1.1`) để DC01 tự resolve được tên miền ngoài (cần thiết vì DC01 là DNS server thẩm quyền cho `lab.local`).
 - Kết quả: agent DC01 **Active**, IP 10.10.10.10, OS Windows Server 2022 Standard Evaluation.
+- Snapshot lại DC01 sau khi cài agent: `dc01-with-wazuh-agent` (snapshot cũ `dc01-configured` không có agent).
 
 ## Agent: WEB01 (Ubuntu, DMZ)
 - Deploy qua Dashboard → Deploy new agent → Linux → DEB amd64.
@@ -92,6 +93,7 @@ sudo systemctl start wazuh-agent
 - Không cần mở thêm rule firewall: pfSense đã có sẵn rule DMZ→LAN cho phép WEB01 gửi log tới Wazuh (port 1514–1515), xem `infra/pfsense.md`.
 - Cài đặt + start chạy trơn tru ngay lần đầu, không gặp lỗi mạng như DC01 (VMware NAT Service trên host đã được restart trước đó, nên ảnh hưởng không còn).
 - Kết quả: agent WEB01 **Active**, IP 10.10.20.10, OS Ubuntu 24.04.4 LTS.
+- Snapshot lại WEB01 sau khi cài agent: `web01-with-wazuh-agent` (snapshot cũ `web01-configured` không có agent).
 
 ## Bài học rút ra (áp dụng cho các VM sau)
 - Luôn kiểm tra dung lượng đĩa thật (`df -h`) trước khi cài phần mềm nặng — installer LVM guided của Ubuntu không tự dùng hết dung lượng đĩa ảo.
@@ -108,3 +110,5 @@ sudo systemctl start wazuh-agent
 - `screenshots/wazuh01-agent-dc01-active.png`
 - `screenshots/wazuh01-agents-both-active.png`
 - `screenshots/wazuh01-snapshot-configured.png`
+- `screenshots/dc01-snapshot-with-wazuh-agent.png`
+- `screenshots/web01-snapshot-with-wazuh-agent.png`
