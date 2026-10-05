@@ -26,7 +26,7 @@ Cập nhật: tick `[x]` khi xong, ghi chú vào `nhat-ky.md`.
 - [x] Mạng ảo VMnet2/VMnet3 + pfSense → snapshot → ghi `infra/pfsense.md`
 - [x] DC01: AD, OU, user, GPO mật khẩu + khoá tài khoản, audit → snapshot → `infra/ad-gpo.md`
 - [x] WEB01 + DVWA (Docker) → snapshot → `infra/dvwa.md`
-- [ ] Wazuh + agent DC01, WEB01 (Active) → snapshot → `infra/wazuh.md`
+- [x] Wazuh + agent DC01, WEB01 (Active) → snapshot → `infra/wazuh.md`
 - [ ] Chụp ảnh vào `screenshots/` suốt quá trình
 
 **Thứ Hai 5/10 (Kịch bản 1 — ATO)**

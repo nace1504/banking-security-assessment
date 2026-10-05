@@ -28,3 +28,16 @@
 - Sự cố gặp giữa chừng: FW01 (pfSense) bị tắt máy → WEB01 mất kết nối gateway/DNS hoàn toàn; bật lại pfSense là hết.
 - Snapshot `web01-configured`. Đã ghi chi tiết vào `infra/dvwa.md`.
 - Tiếp theo: Wazuh + agent DC01, WEB01 → `infra/wazuh.md`.
+
+
+## 05/10/2026 (tiếp — Wazuh)
+- Dựng xong WAZUH01 (Ubuntu Server 24.04 LTS, 2 vCPU/4GB RAM/40GB disk, LAN 10.10.10.20).
+- Cài Wazuh 4.14.8 all-in-one (indexer + manager + dashboard). Gặp 2 sự cố lớn:
+  - Hết dung lượng đĩa (LVM guided-storage chỉ cấp 19/40GB) → fix bằng `lvextend` + `resize2fs`.
+  - Gói wazuh-manager kẹt dpkg purge-incomplete do prerm/postrm lỗi → vô hiệu hoá script, purge ép buộc, cài sạch lại.
+- Đổi mật khẩu admin (UI không cho vì user reserved) → đổi qua OpenSearch Security backend (hash.sh + sửa internal_users.yml + securityadmin.sh).
+- Deploy agent DC01 (Windows): gặp sự cố mạng lạ (ICMP thông nhưng TCP/UDP outbound bị chặn hết) → cô lập từng lớp, cuối cùng phát hiện **VMware NAT Service trên máy host bị kẹt** sau nhiều lần bật/tắt VM — restart service là hết. Agent DC01 lên Active.
+- Deploy agent WEB01 (Ubuntu/DMZ): chạy trơn tru, không cần thêm rule pfSense (đã có sẵn từ trước). Agent WEB01 lên Active.
+- Snapshot `wazuh01-configured`. Đã ghi chi tiết vào `infra/wazuh.md`.
+- **Hoàn thành toàn bộ Giai đoạn 1 (dựng lab)**: FW01, DC01, WEB01/DVWA, WAZUH01 đều xong + snapshot + docs.
+- Tiếp theo: Kịch bản 1 (ATO) — mô hình đe doạ, sinh sự kiện, viết rule Wazuh, `grc/reports/incident-01-ato.md`.
