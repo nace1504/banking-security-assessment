@@ -27,7 +27,7 @@ Cập nhật: tick `[x]` khi xong, ghi chú vào `nhat-ky.md`.
 - [x] DC01: AD, OU, user, GPO mật khẩu + khoá tài khoản, audit → snapshot → `infra/ad-gpo.md`
 - [x] WEB01 + DVWA (Docker) → snapshot → `infra/dvwa.md`
 - [x] Wazuh + agent DC01, WEB01 (Active) → snapshot → `infra/wazuh.md`
-- [ ] Chụp ảnh vào `screenshots/` suốt quá trình
+- [x] Chụp ảnh vào `screenshots/` suốt quá trình
 
 **Thứ Hai 5/10 (Kịch bản 1 — ATO)**
 - [ ] Tầng 1–4: mô hình đe doạ, sinh sự kiện, ghi cấu hình CIS, viết rule Wazuh
