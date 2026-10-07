@@ -64,3 +64,12 @@
 - Hoàn thành đầy đủ 7 tầng `scenarios/02-idor/README.md`, viết `grc/reports/incident-02-idor.md` theo NIST SP 800-61, chấm control ISO 27001 A.5.15 (Chưa đạt), A.8.2 (Đạt có điều kiện), A.8.9 (Đạt).
 - Bài học quan trọng: khi viết custom rule cho log loại Wazuh đã có ruleset mặc định xử lý, phải gắn vào đúng cây rule có sẵn bằng `<if_sid>` thay vì dùng `<decoded_as>` độc lập — nếu không rule có sẵn sẽ "chặn" việc dò tiếp, lỗi này không gây crash/lỗi config nên rất dễ bỏ sót, chỉ phát hiện được bằng `wazuh-logtest -v`.
 - **Hoàn thành Kịch bản 2 (IDOR/BOLA)** — còn lại: đẩy lên GitHub (thủ công).
+
+## 07/10/2026 (GRC — sổ rủi ro, gap assessment, TT09, policy)
+- Đọc cấu trúc thật của Thông tư 09/2020/TT-NHNN (57 Điều, 3 Chương, 10 Mục) để ánh xạ chính xác, không suy đoán số điều.
+- `grc/risk-register.xlsx`: 8 rủi ro rút ra trực tiếp từ 2 kịch bản đã thực hiện + quan sát vận hành (ATO, IDOR, sự cố pipeline SIEM, mật khẩu mặc định, phân vùng mạng, lỗ hổng kỹ thuật chưa vá, thiếu review quyền định kỳ, blind spot giám sát container). Công thức Điểm rủi ro = Khả năng × Ảnh hưởng, Mức rủi ro tính tự động theo ngưỡng (Thấp/Trung bình/Cao/Rất cao), kèm sheet ma trận 5×5 có màu.
+- `grc/gap-assessment.xlsx`: chấm 9 control ISO 27001:2022 Annex A (A.8.5, A.5.17, A.8.16, A.5.15, A.8.2, A.8.9, A.5.1, A.8.3, A.5.37) — 4 Đạt, 3 Đạt có điều kiện, 2 Chưa đạt, có công thức tự đếm và tỷ lệ Đạt.
+- `grc/tt09-mapping.xlsx`: ánh xạ 10 Điều liên quan của TT09 (6, 22, 26, 28, 29, 30, 38, 43, 45, 48) sang control ISO tương ứng và bằng chứng thực tế trong dự án.
+- Hoàn thiện 2 chính sách `grc/policies/password.md` và `grc/policies/access-control.md` — đầy đủ Mục đích/Phạm vi/Quy định/Vai trò/Ngày hiệu lực, có tham chiếu trực tiếp tới bằng chứng và bài học từ 2 kịch bản (đặc biệt mục 5 của access-control.md viết thẳng từ bài học IDOR).
+- Tất cả file Excel đã chạy qua recalc (LibreOffice), xác nhận 0 lỗi công thức.
+- Checkbox Giai đoạn 3 (risk-register, gap-assessment, tt09-mapping + policy) hoàn thành sớm hơn kế hoạch (dự kiến 13-15/10, xong 07/10).

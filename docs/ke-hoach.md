@@ -50,9 +50,9 @@ Cập nhật: tick `[x]` khi xong, ghi chú vào `nhat-ky.md`.
 ## Giai đoạn 3 — 10–17/10: Kịch bản 2 + GRC + nộp MB
 - [x] 10-11/10: Kịch bản 2 (IDOR/BOLA) tầng 1-7, bằng chứng trước/sau, `incident-02-idor.md` (xong 07/10, sớm hơn kế hoạch)
 - [ ] 12/10: nộp Vietcombank (nếu đủ điều kiện; hạn 14/10) · đọc TT09
-- [ ] 13–15/10: `risk-register.xlsx` (~8 dòng + ma trận 5×5)
-- [ ] 13–15/10: `gap-assessment.xlsx` (~8–10 control, có Đạt/Chưa đạt, có bằng chứng)
-- [ ] 13–15/10: `tt09-mapping.xlsx` + 2 policy (`password.md`, `access-control.md`)
+- [x] 13-15/10: `risk-register.xlsx` (8 dòng + ma trận 5×5) — xong 07/10, sớm hơn kế hoạch
+- [x] 13-15/10: `gap-assessment.xlsx` (9 control, có Đạt/Chưa đạt, có bằng chứng) — xong 07/10
+- [x] 13-15/10: `tt09-mapping.xlsx` + 2 policy (`password.md`, `access-control.md`) — xong 07/10
 - [ ] 16/10: sửa mẫu Excel MB, hoàn thiện CV GRC
 - [ ] 17/10: nộp MB (NV1 GRC, NV2 AI Engineer) · bắt đầu kiểm tra email + Spam mỗi ngày
 
