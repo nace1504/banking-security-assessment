@@ -60,6 +60,12 @@ sudo bash ./wazuh-install.sh -a
     -cacert /etc/wazuh-indexer/certs/root-ca.pem -nhnv
   ```
 - Mật khẩu admin hiện tại: `151004Nguyen@` (đã xác minh đăng nhập dashboard thành công).
+- **Lưu ý quan trọng**: đổi mật khẩu admin qua `internal_users.yml` KHÔNG tự động cập nhật mật khẩu mà **filebeat** dùng để đẩy log vào indexer. Filebeat lưu credential riêng trong **filebeat keystore** (biến `${username}`/`${password}` trong `/etc/filebeat/filebeat.yml`). Nếu không đồng bộ, filebeat sẽ lỗi `401 Unauthorized` khi gửi log → alert bị mất hoàn toàn mà không có cảnh báo rõ ràng (phát hiện khi làm Kịch bản 1 ATO, xem `grc/reports/incident-01-ato.md`). Fix:
+  ```bash
+  echo "admin" | sudo filebeat keystore add username --stdin --force
+  echo "<mật khẩu admin mới>" | sudo filebeat keystore add password --stdin --force
+  sudo systemctl restart filebeat
+  ```
 
 ## Agent: DC01 (Windows, LAN)
 - Deploy qua Dashboard → **Agents management → Deploy new agent** → Windows → MSI.

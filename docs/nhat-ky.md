@@ -41,3 +41,14 @@
 - Snapshot `wazuh01-configured`. Đã ghi chi tiết vào `infra/wazuh.md`.
 - **Hoàn thành toàn bộ Giai đoạn 1 (dựng lab)**: FW01, DC01, WEB01/DVWA, WAZUH01 đều xong + snapshot + docs.
 - Tiếp theo: Kịch bản 1 (ATO) — mô hình đe doạ, sinh sự kiện, viết rule Wazuh, `grc/reports/incident-01-ato.md`.
+
+
+## 07/10/2026 (Kịch bản 1 — ATO)
+- Soạn kế hoạch 7 tầng cho Kịch bản 1 (ATO): brute-force RDP vào tài khoản domain `nguyenvana` trên DC01, tận dụng GPO lockout + audit logon đã có từ Giai đoạn 1, không cần viết custom rule Wazuh (dùng ruleset Windows mặc định).
+- Sự cố mạng: adapter "VMware Network Adapter VMnet2" trên máy host bị mất IP tĩnh (rơi về APIPA 169.254.x.x) sau khi restart — đặt lại static `10.10.10.100/24`, gateway `10.10.10.1` là hết.
+- Thực hiện brute-force RDP lần 1 (18:01): tài khoản `nguyenvana` bị khoá đúng như kỳ vọng, Event Viewer DC01 ghi nhận đầy đủ 4625/4740 — nhưng Wazuh dashboard KHÔNG có alert, vì lúc đó wazuh-manager/indexer/dashboard trên WAZUH01 chưa khởi động xong.
+- Restart toàn bộ service Wazuh (indexer, manager, dashboard, filebeat) → phát hiện thêm lỗi filebeat `401 Unauthorized` (mật khẩu trong filebeat keystore không khớp mật khẩu admin OpenSearch đã đổi trước đó) → fix bằng `filebeat keystore add username/password --force` rồi restart filebeat.
+- Mở khoá tài khoản, thực hiện lại brute-force RDP lần 2 (18:38): Wazuh dashboard ghi nhận đầy đủ 13 alert (rule.id 60122 Logon Failure x5, rule.id 60115 Account locked out), đúng kỳ vọng.
+- Hoàn thành đầy đủ 7 tầng của `scenarios/01-ato/README.md`, viết `grc/reports/incident-01-ato.md` theo cấu trúc NIST SP 800-61, chấm control ISO 27001 A.8.5/A.5.17/A.8.16 (Đạt, Đạt, Đạt có điều kiện — ghi nhận gap về health-check SIEM).
+- Bài học quan trọng: pipeline SIEM (manager→filebeat→indexer→dashboard) có thể "âm thầm" mất log nếu một khâu lỗi (ví dụ sai credential sau khi đổi mật khẩu dùng chung) mà không có cảnh báo — đưa vào khuyến nghị Tầng 7.
+- **Hoàn thành Kịch bản 1 (ATO)** — còn lại: đẩy lên GitHub (thủ công).
