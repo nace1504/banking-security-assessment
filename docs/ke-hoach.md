@@ -33,7 +33,7 @@ Cập nhật: tick `[x]` khi xong, ghi chú vào `nhat-ky.md`.
 - [x] Tầng 1–4: mô hình đe doạ, sinh sự kiện, ghi cấu hình CIS, viết rule Wazuh
 - [x] Tầng 5: `grc/reports/incident-01-ato.md`
 - [x] Tầng 6–7: 1 dòng sổ rủi ro, chấm A.8.5 / A.5.17 / A.8.16, khuyến nghị
-- [ ] Đẩy GitHub, README có sơ đồ + ảnh cảnh báo
+- [x] Đẩy GitHub, README có sơ đồ + ảnh cảnh báo
 - [ ] Thêm dòng dự án vào 2 CV
 
 > Điều kiện tối thiểu sang giai đoạn 2: lab chạy + 1 cảnh báo + README.
