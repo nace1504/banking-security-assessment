@@ -52,3 +52,15 @@
 - Hoàn thành đầy đủ 7 tầng của `scenarios/01-ato/README.md`, viết `grc/reports/incident-01-ato.md` theo cấu trúc NIST SP 800-61, chấm control ISO 27001 A.8.5/A.5.17/A.8.16 (Đạt, Đạt, Đạt có điều kiện — ghi nhận gap về health-check SIEM).
 - Bài học quan trọng: pipeline SIEM (manager→filebeat→indexer→dashboard) có thể "âm thầm" mất log nếu một khâu lỗi (ví dụ sai credential sau khi đổi mật khẩu dùng chung) mà không có cảnh báo — đưa vào khuyến nghị Tầng 7.
 - **Hoàn thành Kịch bản 1 (ATO)** — còn lại: đẩy lên GitHub (thủ công).
+
+## 07/10/2026 (Kịch bản 2 — IDOR/BOLA)
+- Chọn trang SQL Injection của DVWA (`/vulnerabilities/sqli/?id=X`) làm kịch bản IDOR: đổi `id` không kèm payload SQL injection để xem dữ liệu user khác — lỗ hổng Broken Object Level Authorization tách biệt khỏi kỹ thuật SQLi.
+- Recreate container DVWA với volume mount log ra host (`-v /var/log/dvwa:/var/log/apache2`) để Wazuh agent đọc được Apache access log (trước đó log nằm trong container, agent không thấy).
+- Thêm `<localfile>` (log_format apache) vào `ossec.conf` của agent WEB01.
+- Viết custom rule 2 tầng trong `local_rules.xml` (rule 100010 "đánh dấu" truy cập trang sqli + rule 100011 frequency="4" timeframe="30" phát hiện enumeration).
+- **Sự cố kỹ thuật**: rule 100010 ban đầu định nghĩa độc lập bằng `<decoded_as>web-accesslog</decoded_as>` — không bao giờ được Wazuh thử vì log đã khớp trước rule có sẵn `31100`, engine chỉ dò cây con của rule đã khớp. Dùng `wazuh-logtest -v` chẩn đoán ra nguyên nhân, sửa rule 100010 thành con thật sự của 31100 bằng `<if_sid>31100</if_sid>` → hoạt động đúng.
+- Thực hiện tấn công thật: id=1→5 trên trình duyệt, xác nhận DVWA trả về 5 user khác nhau (admin, Gordon Brown, Hack Me, Pablo Picasso, Bob Smith) không cần SQL injection.
+- Wazuh dashboard ghi nhận đúng alert rule.id 100011 (level 10, group idor_attempt) lúc 22:52:41 — xác nhận detection hoạt động end-to-end.
+- Hoàn thành đầy đủ 7 tầng `scenarios/02-idor/README.md`, viết `grc/reports/incident-02-idor.md` theo NIST SP 800-61, chấm control ISO 27001 A.5.15 (Chưa đạt), A.8.2 (Đạt có điều kiện), A.8.9 (Đạt).
+- Bài học quan trọng: khi viết custom rule cho log loại Wazuh đã có ruleset mặc định xử lý, phải gắn vào đúng cây rule có sẵn bằng `<if_sid>` thay vì dùng `<decoded_as>` độc lập — nếu không rule có sẵn sẽ "chặn" việc dò tiếp, lỗi này không gây crash/lỗi config nên rất dễ bỏ sót, chỉ phát hiện được bằng `wazuh-logtest -v`.
+- **Hoàn thành Kịch bản 2 (IDOR/BOLA)** — còn lại: đẩy lên GitHub (thủ công).

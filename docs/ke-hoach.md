@@ -48,7 +48,7 @@ Cập nhật: tick `[x]` khi xong, ghi chú vào `nhat-ky.md`.
 - Học kèm: NIST ứng cứu + SOC tier (6/10) · OWASP Top 10:2025 A01/A05/A07/A09 (7/10) · ISO 27001 điều khoản 4–10 + Annex A (8/10)
 
 ## Giai đoạn 3 — 10–17/10: Kịch bản 2 + GRC + nộp MB
-- [ ] 10–11/10: Kịch bản 2 (IDOR/BOLA) tầng 1–7, bằng chứng trước/sau, `incident-02-idor.md`
+- [x] 10-11/10: Kịch bản 2 (IDOR/BOLA) tầng 1-7, bằng chứng trước/sau, `incident-02-idor.md` (xong 07/10, sớm hơn kế hoạch)
 - [ ] 12/10: nộp Vietcombank (nếu đủ điều kiện; hạn 14/10) · đọc TT09
 - [ ] 13–15/10: `risk-register.xlsx` (~8 dòng + ma trận 5×5)
 - [ ] 13–15/10: `gap-assessment.xlsx` (~8–10 control, có Đạt/Chưa đạt, có bằng chứng)
