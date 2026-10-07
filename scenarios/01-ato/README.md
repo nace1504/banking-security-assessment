@@ -2,6 +2,7 @@
 
 ## Tầng 1 — Mô hình đe doạ
 - Mô tả: Attacker cố đăng nhập vào tài khoản nhân viên domain `nguyenvana` trên DC01 qua RDP, thử nhiều mật khẩu sai liên tiếp (password guessing). Giả định: attacker đã biết username (qua OSINT/rò rỉ nơi khác), chưa biết mật khẩu. Phân loại STRIDE: **Spoofing** (giả danh người dùng hợp lệ).
+- Giả định về vị trí mạng: Lab bỏ qua bước "initial access vào LAN" (compromise máy nội bộ, VPN leak, pivot từ DMZ, hoặc insider đe doạ) — attacker được giả định đã có vị trí mạng trong LAN nội bộ (10.10.10.0/24) từ trước. Kịch bản tập trung kiểm chứng control xác thực + phát hiện + ứng cứu khi có brute-force xảy ra trong mạng nội bộ, không mô phỏng toàn bộ chuỗi tấn công (kill chain) từ bên ngoài vào. Threat "insider" hoặc "máy nội bộ đã bị chiếm quyền" là giả định thực tế, phù hợp với MITRE ATT&CK Tactic "Credential Access" (sau giai đoạn Initial Access/Lateral Movement).
 - Khung: OWASP A07:2025 (Identification and Authentication Failures); MITRE T1110.001 (Brute Force: Password Guessing)
 
 ## Tầng 2 — Tấn công (lab)
