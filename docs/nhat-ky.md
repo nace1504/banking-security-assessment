@@ -84,3 +84,8 @@
 ## 08/10/2026 (Giai đoạn 4 — grc/assessment-report.md)
 - Viết báo cáo tổng hợp (~7 trang) tổng hợp toàn bộ dự án: phương pháp luận 7 tầng, hạ tầng, 2 kịch bản (ATO, IDOR) kèm 2 bài học vận hành/kỹ thuật quan trọng nhất (filebeat keystore mất log âm thầm; rule engine tree của Wazuh khiến rule hợp lệ không bao giờ được thử), kết quả gap assessment (4 Đạt/3 Đạt có điều kiện/2 Chưa đạt), sổ rủi ro, ánh xạ TT09, kết quả script wazuh_summary.py, khuyến nghị tổng hợp.
 - Đọc lại infra/*.md (ad-gpo, dvwa, pfsense, wazuh) và 2 báo cáo sự cố để đảm bảo số liệu/chi tiết kỹ thuật chính xác trước khi viết, tránh suy diễn.
+
+## 08/10/2026 (Giai đoạn 4 — README + rà soát bảo mật repo)
+- README.md: kiểm tra lại toàn bộ, đã đủ nội dung; tạo thêm `screenshots/network-diagram.png` (sơ đồ FW01/LAN/DMZ/WAN, IP, luồng log được phép) vì file này được README tham chiếu nhưng chưa tồn tại.
+- Rà soát bảo mật repo trước khi public: phát hiện `infra/wazuh.md` đang ghi mật khẩu admin Wazuh THẬT (`151004Nguyen@`) ở dạng plaintext, không có cảnh báo "chỉ dùng lab" như các mật khẩu khác trong `ad-gpo.md` — đã xoá giá trị thật, chỉ ghi lại đã đổi thành công qua quy trình.
+- Kiểm tra thêm: không có email/số điện thoại thật, mã số sinh viên, hay IP công khai thật nào khác bị lộ trong nội dung repo (chỉ có IP private lab và email tác giả trong git log commit — bình thường với repo GitHub công khai).
