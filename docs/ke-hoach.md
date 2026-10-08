@@ -59,7 +59,7 @@ Cập nhật: tick `[x]` khi xong, ghi chú vào `nhat-ky.md`.
 ## Giai đoạn 4 — 18–24/10: hoàn thiện + ôn phỏng vấn
 - [ ] Power BI dashboard từ gap assessment + sổ rủi ro
 - [ ] Jira: 2 ticket sự cố, chụp luồng trạng thái → `jira/`
-- [ ] `scripts/wazuh_summary.py` hoàn chỉnh
+- [x] `scripts/wazuh_summary.py` hoàn chỉnh — đã chạy thật trên WAZUH01, output tại `scripts/wazuh-summary-sample.md`
 - [ ] `grc/assessment-report.md` (6–8 trang) → xuất PDF
 - [ ] README hoàn chỉnh; rà repo không có mật khẩu/thông tin thật
 - [ ] (Tuỳ chọn) video demo 2–3 phút

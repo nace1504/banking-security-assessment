@@ -73,3 +73,10 @@
 - Hoàn thiện 2 chính sách `grc/policies/password.md` và `grc/policies/access-control.md` — đầy đủ Mục đích/Phạm vi/Quy định/Vai trò/Ngày hiệu lực, có tham chiếu trực tiếp tới bằng chứng và bài học từ 2 kịch bản (đặc biệt mục 5 của access-control.md viết thẳng từ bài học IDOR).
 - Tất cả file Excel đã chạy qua recalc (LibreOffice), xác nhận 0 lỗi công thức.
 - Checkbox Giai đoạn 3 (risk-register, gap-assessment, tt09-mapping + policy) hoàn thành sớm hơn kế hoạch (dự kiến 13-15/10, xong 07/10).
+
+## 08/10/2026 (Giai đoạn 4 — scripts/wazuh_summary.py)
+- Viết `scripts/wazuh_summary.py`: đọc `alerts.json` (JSON Lines), tổng hợp theo rule.level, agent, top rule, top group — không cần thư viện ngoài. Test với dữ liệu mẫu trước khi deploy (đúng với --agent, --since).
+- Không dán được clipboard vào `nano` trên console WAZUH01 (VMware clipboard sharing không hoạt động) → chuyển sang cách chia base64 thành 22 đoạn, ghép qua `echo >>` rồi `base64 -d` giải mã — vẫn là giải pháp ổn định nhất cho giới hạn paste của console VM.
+- Gặp lỗi quyền đọc `/var/ossec/logs/alerts/alerts.json` (cần root) — xử lý bằng `sudo su`; lưu ý khi đổi user, biến `~` đổi theo home mới nên các bước tạo file tạm (`wsummary.b64`) phải thực hiện trước khi đổi sang root, hoặc dùng đường dẫn tuyệt đối.
+- `alerts.json` hiện tại chỉ còn log mới (rotate theo ngày) — tìm thấy log lưu trữ đầy đủ ngày 07/10 tại `/var/ossec/logs/alerts/2026/Oct/ossec-alerts-07.json`, chạy script trên file này ra kết quả đầy đủ: 570 alert, 3 agent (DC01 386, WEB01 65, wazuh01 119), bao gồm cả rule 60122 (ATO) và rule 100010/100011 (IDOR) — xác nhận lại 2 kịch bản bằng 1 công cụ độc lập với dashboard.
+- Lưu output thật vào `scripts/wazuh-summary-sample.md` và ảnh chụp console vào `screenshots/` làm bằng chứng script chạy được trên dữ liệu thật.
