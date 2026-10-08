@@ -60,7 +60,7 @@ Cập nhật: tick `[x]` khi xong, ghi chú vào `nhat-ky.md`.
 - [ ] Power BI dashboard từ gap assessment + sổ rủi ro
 - [ ] Jira: 2 ticket sự cố, chụp luồng trạng thái → `jira/`
 - [x] `scripts/wazuh_summary.py` hoàn chỉnh — đã chạy thật trên WAZUH01, output tại `scripts/wazuh-summary-sample.md`
-- [ ] `grc/assessment-report.md` (6–8 trang) → xuất PDF
+- [x] `grc/assessment-report.md` (6–8 trang) → xuất PDF
 - [ ] README hoàn chỉnh; rà repo không có mật khẩu/thông tin thật
 - [ ] (Tuỳ chọn) video demo 2–3 phút
 - [ ] 19–23/10: nộp nhóm C (GTSC, VSEC, Bkav, VNCS, NCS, NetNam, Nam Trường Sơn, Vina Aspire, ISOCERT, Robusta, Viện CNTT ĐHQGHN)

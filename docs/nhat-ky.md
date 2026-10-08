@@ -80,3 +80,7 @@
 - Gặp lỗi quyền đọc `/var/ossec/logs/alerts/alerts.json` (cần root) — xử lý bằng `sudo su`; lưu ý khi đổi user, biến `~` đổi theo home mới nên các bước tạo file tạm (`wsummary.b64`) phải thực hiện trước khi đổi sang root, hoặc dùng đường dẫn tuyệt đối.
 - `alerts.json` hiện tại chỉ còn log mới (rotate theo ngày) — tìm thấy log lưu trữ đầy đủ ngày 07/10 tại `/var/ossec/logs/alerts/2026/Oct/ossec-alerts-07.json`, chạy script trên file này ra kết quả đầy đủ: 570 alert, 3 agent (DC01 386, WEB01 65, wazuh01 119), bao gồm cả rule 60122 (ATO) và rule 100010/100011 (IDOR) — xác nhận lại 2 kịch bản bằng 1 công cụ độc lập với dashboard.
 - Lưu output thật vào `scripts/wazuh-summary-sample.md` và ảnh chụp console vào `screenshots/` làm bằng chứng script chạy được trên dữ liệu thật.
+
+## 08/10/2026 (Giai đoạn 4 — grc/assessment-report.md)
+- Viết báo cáo tổng hợp (~7 trang) tổng hợp toàn bộ dự án: phương pháp luận 7 tầng, hạ tầng, 2 kịch bản (ATO, IDOR) kèm 2 bài học vận hành/kỹ thuật quan trọng nhất (filebeat keystore mất log âm thầm; rule engine tree của Wazuh khiến rule hợp lệ không bao giờ được thử), kết quả gap assessment (4 Đạt/3 Đạt có điều kiện/2 Chưa đạt), sổ rủi ro, ánh xạ TT09, kết quả script wazuh_summary.py, khuyến nghị tổng hợp.
+- Đọc lại infra/*.md (ad-gpo, dvwa, pfsense, wazuh) và 2 báo cáo sự cố để đảm bảo số liệu/chi tiết kỹ thuật chính xác trước khi viết, tránh suy diễn.
