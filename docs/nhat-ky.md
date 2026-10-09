@@ -89,3 +89,11 @@
 - README.md: kiểm tra lại toàn bộ, đã đủ nội dung; tạo thêm `screenshots/network-diagram.png` (sơ đồ FW01/LAN/DMZ/WAN, IP, luồng log được phép) vì file này được README tham chiếu nhưng chưa tồn tại.
 - Rà soát bảo mật repo trước khi public: phát hiện `infra/wazuh.md` đang ghi mật khẩu admin Wazuh THẬT (`151004Nguyen@`) ở dạng plaintext, không có cảnh báo "chỉ dùng lab" như các mật khẩu khác trong `ad-gpo.md` — đã xoá giá trị thật, chỉ ghi lại đã đổi thành công qua quy trình.
 - Kiểm tra thêm: không có email/số điện thoại thật, mã số sinh viên, hay IP công khai thật nào khác bị lộ trong nội dung repo (chỉ có IP private lab và email tác giả trong git log commit — bình thường với repo GitHub công khai).
+
+## 09/10/2026 (Giai đoạn 4 — Power BI dashboard)
+- Xây `grc/dashboard.pbix` từ `risk-register.xlsx` và `gap-assessment.xlsx` bằng Power BI Desktop (Get Data → Power Query → Report view), gồm 2 trang: "Risk Register" (donut theo Mức rủi ro, scatter Khả năng×Ảnh hưởng kèm size=Điểm rủi ro, bảng chi tiết 8 rủi ro) và "Gap Assessment" (donut theo Đạt/Chưa đạt, bar theo Tên control, bảng lọc riêng 2 control Chưa đạt kèm Gap + khuyến nghị).
+- **Sự cố Power Query (lặp lại 2 lần, một lần mỗi query)**: bấm "Use First Row as Headers" trước khi xoá các dòng tiêu đề/ghi chú phía trên, khiến chuỗi tiêu đề dài bị nhận nhầm thành tên cột và dòng header thật bị đọc thành dữ liệu. Khắc phục bằng cách xoá các bước sai trong Applied Steps (xoá từ dưới lên: Changed Type → Promoted Headers) rồi làm lại đúng thứ tự: Remove Top Rows → Use First Row as Headers → Remove Bottom Rows.
+- **Sự cố giao diện Power BI**: chọn/click một dòng trong bảng Table sẽ cross-highlight (lọc chéo) các visual khác cùng trang xuống chỉ còn 1 bản ghi, dễ nhầm là lỗi dữ liệu/filter — thực chất chỉ là trạng thái "đang chọn", click ra vùng canvas trống là khôi phục đúng tổng số (8 rủi ro, 9 control).
+- Sắp xếp giảm dần theo "Điểm rủi ro" trong bảng Risk Register không áp dụng đúng dù UI hiển thị mũi tên sort — xác định là lỗi hiển thị cosmetic của Power BI, không ảnh hưởng dữ liệu, quyết định giữ nguyên.
+- Chụp ảnh 2 trang dashboard lưu vào `screenshots/dashboard-risk-register.png` và `screenshots/dashboard-gap-assessment.png` làm bằng chứng.
+- Checkbox Power BI dashboard trong `docs/ke-hoach.md` hoàn thành.

@@ -57,7 +57,7 @@ Cập nhật: tick `[x]` khi xong, ghi chú vào `nhat-ky.md`.
 - [ ] 17/10: nộp MB (NV1 GRC, NV2 AI Engineer) · bắt đầu kiểm tra email + Spam mỗi ngày
 
 ## Giai đoạn 4 — 18–24/10: hoàn thiện + ôn phỏng vấn
-- [ ] Power BI dashboard từ gap assessment + sổ rủi ro
+- [x] Power BI dashboard từ gap assessment + sổ rủi ro — `grc/dashboard.pbix`, 2 trang (Risk Register, Gap Assessment)
 - [ ] Jira: 2 ticket sự cố, chụp luồng trạng thái → `jira/`
 - [x] `scripts/wazuh_summary.py` hoàn chỉnh — đã chạy thật trên WAZUH01, output tại `scripts/wazuh-summary-sample.md`
 - [x] `grc/assessment-report.md` (6–8 trang) → xuất PDF
