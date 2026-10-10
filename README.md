@@ -21,7 +21,7 @@ Mô hình đe doạ → tấn công (lab) → hardening (CIS) → phát hiện (
 | Ứng cứu sự cố | NIST SP 800-61 |
 
 ## Sơ đồ mạng lab
-_(chèn ảnh: screenshots/network-diagram.png)_
+![Sơ đồ mạng lab](screenshots/network-diagram.png)
 
 | Máy | Vai trò | Mạng |
 |---|---|---|
@@ -50,4 +50,4 @@ trong lab cô lập). Core banking, thẻ, SWIFT nằm ngoài phạm vi.
 - Báo cáo tổng: [grc/assessment-report.md](grc/assessment-report.md)
 
 ## Tài liệu
-- [**Kế hoạch & checklist**](docs/ke-hoach.md) · [Lộ trình](docs/lo-trinh-du-an.md) · [Khung tham chiếu](docs/khung-tham-chieu.md) · [Lab runbook](docs/lab-runbook.md) · [Nhật ký](docs/nhat-ky.md)
+- [Lộ trình](docs/lo-trinh-du-an.md) · [Khung tham chiếu](docs/khung-tham-chieu.md) · [Lab runbook](docs/lab-runbook.md) · [Nhật ký](docs/nhat-ky.md)
