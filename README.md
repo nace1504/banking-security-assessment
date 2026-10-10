@@ -42,7 +42,7 @@ trong lab cô lập). Core banking, thẻ, SWIFT nằm ngoài phạm vi.
 - `grc/` — risk register, gap assessment, TT09, policies, reports, báo cáo tổng, dashboard
 - `scripts/` — script Python tóm tắt cảnh báo
 - `docs/` — lộ trình, khung tham chiếu, lab runbook, nhật ký
-- `jira/`, `screenshots/` — ảnh/ export
+- `screenshots/` — ảnh/ export
 
 ## Liên kết nhanh
 - Kịch bản 1 (ATO): [scenarios/01-ato/README.md](scenarios/01-ato/README.md)
