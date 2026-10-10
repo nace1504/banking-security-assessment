@@ -3,3 +3,10 @@
 *.vmdk
 secrets*
 .env
+
+# File rác hệ điều hành / Office / Power BI tạm
+Thumbs.db
+desktop.ini
+.DS_Store
+~$*.pbix
+*.bak
