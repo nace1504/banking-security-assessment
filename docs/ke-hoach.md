@@ -58,11 +58,11 @@ Cập nhật: tick `[x]` khi xong, ghi chú vào `nhat-ky.md`.
 
 ## Giai đoạn 4 — 18–24/10: hoàn thiện + ôn phỏng vấn
 - [x] Power BI dashboard từ gap assessment + sổ rủi ro — `grc/dashboard.pbix`, 2 trang (Risk Register, Gap Assessment)
-- [ ] Jira: 2 ticket sự cố, chụp luồng trạng thái → `jira/`
+- [~] ~~Jira: 2 ticket sự cố, chụp luồng trạng thái → `jira/`~~ (bỏ — mô phỏng không gắn với sự cố thật, ít giá trị so với report/dashboard đã có)
 - [x] `scripts/wazuh_summary.py` hoàn chỉnh — đã chạy thật trên WAZUH01, output tại `scripts/wazuh-summary-sample.md`
 - [x] `grc/assessment-report.md` (6–8 trang) → xuất PDF
 - [x] README hoàn chỉnh; rà repo không có mật khẩu/thông tin thật
-- [ ] (Tuỳ chọn) video demo 2–3 phút
+- [~] ~~(Tuỳ chọn) video demo 2–3 phút~~ (bỏ — không bắt buộc, ưu tiên hoàn thiện CV)
 - [ ] 19–23/10: nộp nhóm C (GTSC, VSEC, Bkav, VNCS, NCS, NetNam, Nam Trường Sơn, Vina Aspire, ISOCERT, Robusta, Viện CNTT ĐHQGHN)
 - [ ] Soạn câu trả lời STAR (giới thiệu, dự án, vì sao ATTT/GRC, điểm yếu, vì sao công ty này)
 - [ ] Luyện demo lab 5 phút từ snapshot
